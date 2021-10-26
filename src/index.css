@@ -49,3 +49,23 @@ p {
   background: lightskyblue;
   padding: 1rem;
 }
+
+.lightgrey {
+  background: lightgrey;
+}
+
+.lightgreen {
+  background: lightgreen;
+}
+
+.lightred {
+  background: lightpink;
+}
+
+.odd {
+  background: lightgreen;
+}
+
+.even {
+  background: lightpink;
+}

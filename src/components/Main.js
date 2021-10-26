@@ -5,18 +5,35 @@ class Main extends Component {
     super(props);
     this.state = {
       count: 0,
+      styling: "circle lightgrey",
     };
   }
 
-  addOneHandler = () => this.setState((state) => ({ count: state.count + 1 }));
-  resetHandler = () => this.setState((state) => ({ count: 0 }));
-  removeOneHandler = () =>
-    this.setState((state) => ({ count: state.count - 1 }));
+  addOneHandler = () =>
+    this.setState((state) => ({
+      count: state.count + 1,
+      styling: "circle lightgreen",
+    }));
+  resetHandler = () =>
+    this.setState((state) => ({ count: 0, styling: "circle lightgrey" }));
+  removeOneHandler = () => {
+    if (this.state.count === 0) return;
+    this.setState((state) => ({
+      count: state.count - 1,
+      styling: "circle lightred",
+    }));
+  };
 
   render() {
+    let circleClass = "circle";
+    if (this.state.count !== 0) {
+      circleClass += this.state.count % 2 === 0 ? " odd" : " even";
+    }
+
     return (
       <>
-        <div className="circle">{this.state.count}</div>
+        <div className={this.state.styling}>{this.state.count}</div>
+        {/* <div className={circleClass}>{this.state.count}</div> */}
         <div className="buttons">
           <button className="bt" onClick={this.addOneHandler}>
             Add One
